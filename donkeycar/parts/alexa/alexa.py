@@ -11,7 +11,6 @@ class AlexaController(object):
         self.running = True
         self.user_mode = "user"
         self.speed_factor = 1
-        self.throttle = 0
         self.ctr = ctr
 
     def get_command(self):
@@ -59,7 +58,7 @@ class AlexaController(object):
 
 
     def run_threaded(self, throttle):
-        return self.throttle * self.speed_factor
+        return min(throttle * self.speed_factor, 1.0)
 
 
     def shutdown(self):
