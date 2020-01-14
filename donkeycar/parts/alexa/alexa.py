@@ -3,8 +3,6 @@ import time
 class AlexaController(object):
     '''
     Accept simple command from alexa. For the command supported, please refer to the README.md
-
-    I have defined the following commands: "engine on", "engine off", "stop", "auto pilot", "manual", "speed up", "slow down"
     '''
 
     def __init__(self, ctr):
@@ -21,20 +19,18 @@ class AlexaController(object):
 
         # sending get request and saving the response as response object
         data = {
-            'caller': 'Alexa',
-            'apikey': 'zQ8ieCMQuE5L693hUX0lioDL2crgNtuyreyGVUkbLeA'
+            'caller': 'DonkeyCar',
+            'apikey': 'srEZiM59dCqFu6ZRjPjMa7H4oMMHpDVmzthipiTAb8w'
         }
-
-        # data = {
-        #     'caller': 'DonkeyCar',
-        #     'apikey': 'srEZiM59dCqFu6ZRjPjMa7H4oMMHpDVmzthipiTAb8w'
-        # }
 
         r = requests.post(url = API_ENDPOINT, json = data)
 
         result = r.json()
         print(result)
-        command = (result['body']['command'])
+        if (result['body']['command']):
+            command = result['body']['command']
+        else:
+            command = ""
         return command
 
 

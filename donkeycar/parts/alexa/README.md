@@ -34,6 +34,8 @@ from donkeycar.parts.alexa.alexa import AlexaController
 V.add(AlexaController(ctr), inputs=['throttle'], outputs=['throttle'], threaded=True)
 ```
 
+## Commands
+
 Autopilot
 ===
 If you use this command, it is expected that the donkey car is started with a model. This command will set the `user_mode` into `local` only
@@ -46,4 +48,8 @@ Internally there is a `speed_factor` variable in this part intialized at 1. Each
 Stop/Manual
 ===
 This command set the `user_mode` to `user`
+
+<Empty Command>
+===
+If no command is received from Alexa, this part will do nothing
 
