@@ -5,11 +5,12 @@ class AlexaController(object):
     Accept simple command from alexa. For the command supported, please refer to the README.md
     '''
 
-    def __init__(self, ctr):
+    def __init__(self, ctr, cfg):
         self.running = True
         self.user_mode = "user"
         self.speed_factor = 1
         self.ctr = ctr
+        self.cfg = cfg  # Pass the config object for altering AI_THROTTLE_MULT
 
     def get_command(self):
         import requests
@@ -27,7 +28,7 @@ class AlexaController(object):
 
         result = r.json()
         print(result)
-        if (result['body']['command']):
+        if ("command" in result['body']):
             command = result['body']['command']
         else:
             command = ""
@@ -43,18 +44,20 @@ class AlexaController(object):
                 self.ctr.mode = "local"
             elif command == "speed up":
                 self.speed_factor += 0.1
+                self.cfg.AI_THROTTLE_MULT += 0.1
             elif command == "slow down":
                 self.speed_factor -= 0.1
+                self.cfg.AI_THROTTLE_MULT -= 0.1
             elif command == "stop" or command == "manual":
                 self.ctr.mode = "user"
                 self.speed_factor = 1
 
-            print("mode = {}, speed_factor = {}".format(self.ctr.mode, self.speed_factor))
+            print("mode = {}, speed_factor = {}, cfg.AI_THROTTLE_MULT={}".format(self.ctr.mode, self.speed_factor, self.cfg.AI_THROTTLE_MULT))
             time.sleep(0.25)
 
 
     def run_threaded(self, throttle):
-        return min(throttle * self.speed_factor, 1.0)
+        pass
 
 
     def shutdown(self):
