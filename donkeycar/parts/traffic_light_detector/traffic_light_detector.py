@@ -58,6 +58,7 @@ class TrafficLightDetector(object):
         self.LAST_5_SCORE_THRESHOLD = 0.4
         self.MIN_SCORE = 0.2
         self.debug = debug
+        self.stop_count = 20
 
     def convertImageArrayToPILImage(self, img_arr):
         img = Image.fromarray(img_arr.astype('uint8'), 'RGB')
@@ -178,8 +179,12 @@ class TrafficLightDetector(object):
             # if self.is_light_on(upper_half_img_arr):
             #     # print("Red light detected, overriding throttle to 0")
             #     throttle = 0
+            self.stop_count = 20
             return 0, img_arr
         else:
+            if self.stop_count > 0:
+                self.stop_count -= 1
+                return 0, img_arr
             return throttle, img_arr
 
     # def shutdown(self):
