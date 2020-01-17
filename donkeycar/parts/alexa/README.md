@@ -27,11 +27,15 @@ The command supported are:
 
 
 ## Installation
-To install this part, add the following lines to `manage.py`, preferably under the `DriveMode()` part.
+To install this part, add the following lines to `manage.py`, before the `DriveMode()` part.
 
 ```python
 from donkeycar.parts.alexa.alexa import AlexaController
 V.add(AlexaController(ctr), inputs=['throttle'], outputs=['throttle'], threaded=True)
+
+from donkeycar.parts.alexa.alexa import AlexaController
+    V.add(AlexaController(ctr, cfg), inputs=['pilot/throttle'], threaded=True)
+
 ```
 
 ## Commands
