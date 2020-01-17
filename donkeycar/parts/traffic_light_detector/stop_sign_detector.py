@@ -54,7 +54,7 @@ class TrafficLightDetector(object):
         self.engine = DetectionEngine(MODEL_FILE_NAME)
         self.labels = dataset_utils.read_label_file(LABEL_FILE_NAME)
 
-        self.TRAFFIC_LIGHT_CLASS = 9
+        self.STOP_SIGN_CLASS_ID  = 12
         self.LAST_5_SCORE_THRESHOLD = 0.4
         self.MIN_SCORE = 0.2
         self.debug = debug
@@ -62,18 +62,12 @@ class TrafficLightDetector(object):
     def convertImageArrayToPILImage(self, img_arr):
         img = Image.fromarray(img_arr.astype('uint8'), 'RGB')
 
-
-
-        # cropped_img = img.crop((50,0,350,300))
-        # cropped_img.show()
-
-        # img = Image.fromarray(np.uint8(cm.gist_earth(img_arr)*255))
         return img
 
     '''
     Return an object if there is a traffic light in the frame
     '''
-    def detect_traffic_light(self, img_arr):
+    def detect_stop_sign (self, img_arr):
         img = self.convertImageArrayToPILImage(img_arr)
 
         ans = self.engine.detect_with_image(img,
@@ -85,9 +79,9 @@ class TrafficLightDetector(object):
         traffic_light_obj = None
         if ans:
             for obj in ans:
-                if (obj.label_id == self.TRAFFIC_LIGHT_CLASS or obj.label_id == 12):
+                if (obj.label_id == self.STOP_SIGN_CLASS_ID):
                     if self.debug:
-                        print("traffic light detected, score = {}".format(obj.score))
+                        print("stop sign detected, score = {}".format(obj.score))
                     if (obj.score > max_score):
                         print(obj.bounding_box)
                         traffic_light_obj = obj
@@ -109,41 +103,6 @@ class TrafficLightDetector(object):
 
         return traffic_light_obj
 
-    '''
-    Return a traffic light image array based on the traffic light obj bounding box
-    '''
-    def crop_traffic_light(self, img_arr, traffic_light_obj):
-        bbox = traffic_light_obj.bounding_box
-
-        x1 = int(bbox[0][0])
-        x2 = int(bbox[1][0])
-
-        y1 = int(bbox[0][1])
-        y2 = int(bbox[1][1])
-
-        return img_arr[y1:y2, x1:x2]
-
-    def is_light_on(self, img_arr):
-
-        cv2.imwrite("upper_red_light.jpg",img_arr)
-        img_gray = cv2.cvtColor(img_arr, cv2.COLOR_RGB2GRAY)
-        ret, img_thresh = cv2.threshold(img_gray, 210, 255, cv2.THRESH_BINARY)
-
-        cv2.imwrite("upper_red_light_thresh.jpg",img_thresh)
-
-        print("cv2.countNonZero = ", cv2.countNonZero(img_thresh))
-
-        if cv2.countNonZero(img_thresh) > 0:
-            return True
-        else:
-            return False
-
-    def crop_upper_half(self, img_arr):
-        h, w, channels = img_arr.shape
-        upper_half_img_arr = img_arr[
-            0:h // 2, 0:w, :]  # Upper part of image refer to red light
-
-        return upper_half_img_arr
 
     def run(self, img_arr, throttle, debug=False):
         if img_arr is None:
@@ -153,7 +112,7 @@ class TrafficLightDetector(object):
         #     cv2.imshow("img {}".format(random.randint(1, 10000)), img_arr)
 
         # Detect traffic light object
-        traffic_light_obj = self.detect_traffic_light(img_arr)
+        traffic_light_obj = self.detect_stop_sign(img_arr)
 
         if traffic_light_obj:
             xmargin  =( traffic_light_obj.bounding_box[1][0] - traffic_light_obj.bounding_box[0][0]) *0.1
