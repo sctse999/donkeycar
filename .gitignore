@@ -24,3 +24,6 @@ build
 # codecov
 htmlcov/
 __pycache__
+
+# Ignore models file
+*.tflite
