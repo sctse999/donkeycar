@@ -26,10 +26,7 @@ To install this part, add the following lines to `manage.py`, before the `DriveM
 
 ```python
 from donkeycar.parts.alexa.alexa import AlexaController
-V.add(AlexaController(ctr), inputs=['throttle'], outputs=['throttle'], threaded=True)
-
-from donkeycar.parts.alexa.alexa import AlexaController
-V.add(AlexaController(ctr, cfg), inputs=['pilot/throttle'], threaded=True)
+V.add(AlexaController(ctr, cfg), threaded=True)
 
 ```
 

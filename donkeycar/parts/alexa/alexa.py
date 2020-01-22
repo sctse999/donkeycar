@@ -5,9 +5,10 @@ class AlexaController(object):
     Accept simple command from alexa. For the command supported, please refer to the README.md
     '''
 
-    def __init__(self, ctr, cfg):
+    def __init__(self, ctr, cfg, debug = False):
         self.running = True
         self.user_mode = "user"
+        self.debug = debug
         self.ctr = ctr
         self.cfg = cfg  # Pass the config object for altering AI_THROTTLE_MULT
 
@@ -26,7 +27,8 @@ class AlexaController(object):
         r = requests.post(url = API_ENDPOINT, json = data)
 
         result = r.json()
-        print(result)
+        if self.debug:
+            print(result)
         if ("command" in result['body']):
             command = result['body']['command']
         else:
@@ -49,7 +51,8 @@ class AlexaController(object):
                 self.ctr.mode = "user"
                 self.cfg.AI_THROTTLE_MULT = 1
 
-            print("mode = {}, cfg.AI_THROTTLE_MULT={}".format(self.ctr.mode, self.cfg.AI_THROTTLE_MULT))
+            if self.debug:
+                print("mode = {}, cfg.AI_THROTTLE_MULT={}".format(self.ctr.mode, self.cfg.AI_THROTTLE_MULT))
             time.sleep(0.25)
 
 
