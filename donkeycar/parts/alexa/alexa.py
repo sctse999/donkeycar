@@ -39,7 +39,6 @@ class AlexaController(object):
     def update(self):
         while (self.running):
             command = self.get_command()
-            print("command = {}".format(command))
 
             if command == "auto pilot":
                 self.ctr.mode = "local"
