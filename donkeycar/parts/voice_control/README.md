@@ -1,27 +1,29 @@
-# Alexa Support
-## Overview
+# Voice Control
+
+## Alexa Support
+### Overview
 Technically this is a part that allow you to override the `user_mode` and `AI_THROTTLE_MULT` by an external url, which is supposed to be altered by an Alexa in our case.
+
+### Demo
+[![Demo](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
 
 This part will send an POST request every 0.25 second to an url and expect to receive the data in the following format:
 
 ```
 {
   "statusCode": 200,
-  "body": {
-    "target": "DonkeyCar",
-    "command": "speed up"
-  }
+  "command": "speedup"
 }
 ```
 
-## Command Supported
+### Command Supported
 The command supported are:
-- auto pilot
-- slow down
-- speed up
+- autopilot
+- slowdown
+- speedup
 - stop/manual
 
-## Installation
+### Installation
 To install this part, add the following lines to `manage.py`, before the `DriveMode()` part.
 
 ```python
@@ -30,7 +32,7 @@ V.add(AlexaController(ctr, cfg), threaded=True)
 
 ```
 
-## Commands
+### Commands
 Autopilot
 ===
 If you use this command, it is expected that the donkey car is started with a model. This command will set the variable `mode` of the controller to `local`
