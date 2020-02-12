@@ -1,50 +1,46 @@
 import time
+import requests
 
 class AlexaController(object):
     '''
     Accept simple command from alexa. For the command supported, please refer to the README.md
     '''
+    API_ENDPOINT = "http://alexa.robocarstore.com"
 
     def __init__(self, ctr, cfg, debug = False):
         self.running = True
-        self.user_mode = "user"
         self.debug = debug
         self.ctr = ctr
         self.cfg = cfg  # Pass the config object for altering AI_THROTTLE_MULT
 
+        if self.cfg.ALEXA_DEVICE_CODE is None:
+            raise Exception("Please set cfg.ALEXA_DEVICE_CODE in myconfig.py")
+
+
     def get_command(self):
-        import requests
+        url = "{}/{}".format(self.API_ENDPOINT, 'command')
 
-        # api-endpoint
-        API_ENDPOINT = "https://r4s41gawe7.execute-api.us-east-2.amazonaws.com/dev"
-
-        # sending get request and saving the response as response object
-        data = {
-            'caller': 'DonkeyCar',
-            'apikey': 'srEZiM59dCqFu6ZRjPjMa7H4oMMHpDVmzthipiTAb8w'
+        params = {
+            'deviceCode': self.cfg.ALEXA_DEVICE_CODE
         }
 
-        r = requests.post(url = API_ENDPOINT, json = data)
-
+        r = requests.get(url = url, params= params)
         result = r.json()
-        if self.debug:
-            print(result)
-        if ("command" in result['body']):
-            command = result['body']['command']
-        else:
-            command = ""
-        return command
 
+
+        return result['command']
 
     def update(self):
         while (self.running):
             command = self.get_command()
+            if self.debug:
+                print("command = {}".format(command))
 
-            if command == "auto pilot":
+            if command == "autopilot":
                 self.ctr.mode = "local"
-            elif command == "speed up":
+            elif command == "speedup":
                 self.cfg.AI_THROTTLE_MULT += 0.05
-            elif command == "slow down":
+            elif command == "slowdown":
                 self.cfg.AI_THROTTLE_MULT -= 0.05
             elif command == "stop" or command == "manual":
                 self.ctr.mode = "user"
@@ -57,7 +53,6 @@ class AlexaController(object):
 
     def run_threaded(self):
         pass
-
 
     def shutdown(self):
         self.running = False
