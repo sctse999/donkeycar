@@ -8,6 +8,8 @@ This part works together with a public Alexa skill that we have released. When y
 
 
 ### Demo
+Click the image below to open the video on youtube
+
 [![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
 
 This part will send an POST request every 0.25 second to an url and expect to receive the data in the following format:
@@ -20,7 +22,6 @@ This part will send an POST request every 0.25 second to an url and expect to re
 ```
 
 ### Command Supported
-The command supported are:
 - Report device code
 - autopilot
 - slowdown
@@ -53,19 +54,16 @@ ALEXA_DEVICE_CODE="123456"
 ```
 
 ### Commands
-Autopilot
-===
+#### Autopilot
 If you use this command, it is expected that the donkey car is started with a model. This command will set the variable `mode` of the controller to `local`
 
-Slowdown / Speedup
-===
+#### Slowdown / Speedup
+
 This command alter the `cfg.AI_THROTTLE_MULT` variable passed from the constructor. Each time this command is received, the `AI_THROTTLE_MULT` is increased/decreased by 0.05.
 
 Note: Since this command alter `AI_THROTTLE_MULT`, it won't speed up when you are running in `user` or `local_angle` mode.
 
-
-Stop/Manual
-===
+#### Stop/Manual
 This command will set the variable `mode` of the controller to `user`
 
 ### About Device Code
