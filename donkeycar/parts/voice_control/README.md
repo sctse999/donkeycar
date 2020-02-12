@@ -69,7 +69,7 @@ Stop/Manual
 This command will set the variable `mode` of the controller to `user`
 
 ### About Device Code
-Device code is
+Device code is a 6-digit numeric string derived by a hash function from your Alexa device ID.
 
 
 ### Our web service source code
