@@ -2,7 +2,10 @@
 
 ## Alexa Support
 ### Overview
-Technically this is a part that allow you to override the `user_mode` and `AI_THROTTLE_MULT` by an external url, which is supposed to be altered by an Alexa in our case.
+This part works together with a public Alexa skill that we have released. When you say a command, the Alexa skill will forward this command to a server hosted by us to temporarily store it. Your donkey car, installed with this part and with proper configuration, poll our server for any new command from Alexa.
+
+![alt text](alexa_overview.png "Title")
+
 
 ### Demo
 [![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
@@ -18,18 +21,35 @@ This part will send an POST request every 0.25 second to an url and expect to re
 
 ### Command Supported
 The command supported are:
+- Report device code
 - autopilot
 - slowdown
 - speedup
 - stop/manual
 
+
+### Get Started
+1. Use your alexa app, navigate to Skills and Games
+2. Search for "Donkey Car Control"
+3. Enable the Skill
+4. Say "Open car control and report device code". Use a pencil to write down the device code.
+5. Follow the instructions below to install the part in donkey car software running on Pi
+
+
 ### Installation
-To install this part, add the following lines to `manage.py`, before the `DriveMode()` part.
-
+To install this part, add the following lines to `manage.py`, right after the `controller` setup
+In manage.py
 ```python
-from donkeycar.parts.alexa.alexa import AlexaController
-V.add(AlexaController(ctr, cfg), threaded=True)
 
+if cfg.USE_ALEXA_CONTROL:
+  from donkeycar.parts.voice_control.alexa import AlexaController
+  V.add(AlexaController(ctr, cfg), threaded=True)
+```
+
+In myconfig.py, add the following parameters
+```python
+USE_ALEXA_CONTROL = True
+ALEXA_DEVICE_CODE="123456"
 ```
 
 ### Commands
@@ -37,7 +57,7 @@ Autopilot
 ===
 If you use this command, it is expected that the donkey car is started with a model. This command will set the variable `mode` of the controller to `local`
 
-Slow Down / Speed Up
+Slowdown / Speedup
 ===
 This command alter the `cfg.AI_THROTTLE_MULT` variable passed from the constructor. Each time this command is received, the `AI_THROTTLE_MULT` is increased/decreased by 0.05.
 
@@ -47,6 +67,15 @@ Note: Since this command alter `AI_THROTTLE_MULT`, it won't speed up when you ar
 Stop/Manual
 ===
 This command will set the variable `mode` of the controller to `user`
+
+### About Device Code
+Device code is
+
+
+### Our web service source code
+Check here for our web service source code, it is open source too.
+
+https://github.com/robocarstore/donkeycar-alexa-backend
 
 ## License
 AGPL
