@@ -66,9 +66,8 @@ Note: Since this command alter `AI_THROTTLE_MULT`, it won't speed up when you ar
 #### Stop/Manual
 This command will set the variable `mode` of the controller to `user`
 
-### About Device Code
-Device code is a 6-digit numeric string derived by a hash function from your Alexa device ID.
-
+### Report device code
+Device code is a 6-digit numeric string derived by a hash function from your Alexa device ID. In order to distinguish commands from multiple Alexa devices, commands sent to our server would need an identifier, which is the device code. When donkey car poll for new command, the part will use this device code to poll for new commands.
 
 ### Our web service source code
 Check here for our web service source code, it is open source too.
