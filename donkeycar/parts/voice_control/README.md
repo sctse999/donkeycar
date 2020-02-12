@@ -10,8 +10,6 @@ Click the image below to open the video on youtube
 
 [![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
 
-This part will send an POST request every 0.25 second to our hosted web service to get new commands.
-
 ## Command Supported
 - Report device code
 - autopilot
