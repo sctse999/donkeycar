@@ -44,7 +44,7 @@ class AlexaController(object):
                 self.cfg.AI_THROTTLE_MULT += 0.05
             elif command == "slowdown":
                 self.cfg.AI_THROTTLE_MULT -= 0.05
-            elif command == "stop" or command == "manual":
+            elif command == "stop"
                 self.ctr.mode = "user"
                 self.cfg.AI_THROTTLE_MULT = 1
 
