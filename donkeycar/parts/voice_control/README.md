@@ -2,13 +2,13 @@
 ## Overview
 This part works together with a public Alexa skill that we have released. When you say a command, the Alexa skill will forward this command to a server hosted by us to temporarily store it. Your donkey car, installed with this part and with proper configuration, poll our server for any new command from Alexa.
 
-![alt text](alexa_overview.png "Title")
+![alt text](alexa_overview.png "Overview")
 
 
 ## Demo
 Click the image below to open the video on youtube
 
-[![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
+[![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc){:target="_blank"}
 
 ## Command Supported
 - Report device code
