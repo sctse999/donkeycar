@@ -62,5 +62,5 @@ Check here for our web service source code, it is open source too.
 
 https://github.com/robocarstore/donkeycar-alexa-backend
 
-## License
-AGPL
+## Copyright
+Copyright (c) 2020 Robocar Ltd
