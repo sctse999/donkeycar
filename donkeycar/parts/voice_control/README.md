@@ -43,18 +43,25 @@ ALEXA_DEVICE_CODE="123456"
 
 ## Commands
 ### Autopilot
+`Phrases: autopilot, start autopilot`
+
 If you use this command, it is expected that the donkey car is started with a model. This command will set the variable `mode` of the controller to `local`
 
 ### Slowdown / Speedup
+`Phrases: slow down, speed up, go faster, go slower`
 
 This command alter the `cfg.AI_THROTTLE_MULT` variable passed from the constructor. Each time this command is received, the `AI_THROTTLE_MULT` is increased/decreased by 0.05.
 
 Note: Since this command alter `AI_THROTTLE_MULT`, it won't speed up when you are running in `user` or `local_angle` mode.
 
 ### Stop/Manual
+`Phrases: human control, user mode, stop autopilot, manual`
+
 This command will set the variable `mode` of the controller to `user`
 
 ### Report device code
+`Phrases: report device code, what is your device code, device code`
+
 Device code is a 6-digit numeric string derived by a hash function from your Alexa device ID. In order to distinguish commands from multiple Alexa devices, commands sent to our server would need an identifier, which is the device code. When donkey car poll for new command, the part will use this device code to poll for new commands.
 
 ## Backend
