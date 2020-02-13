@@ -8,7 +8,7 @@ This part works together with a public Alexa skill that we have released. When y
 ## Demo
 Click the image below to open the video on youtube
 
-[![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc){:target="_blank"}
+[![Demo](https://img.youtube.com/vi/Q3kYmy0yjmc/0.jpg)](https://www.youtube.com/watch?v=Q3kYmy0yjmc)
 
 ## Command Supported
 - Report device code
