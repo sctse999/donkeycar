@@ -57,7 +57,7 @@ This command will set the variable `mode` of the controller to `user`
 ### Report device code
 Device code is a 6-digit numeric string derived by a hash function from your Alexa device ID. In order to distinguish commands from multiple Alexa devices, commands sent to our server would need an identifier, which is the device code. When donkey car poll for new command, the part will use this device code to poll for new commands.
 
-## Our web service source code
+## Backend
 Check here for our web service source code, it is open source too.
 
 https://github.com/robocarstore/donkeycar-alexa-backend
