@@ -35,6 +35,8 @@ class AlexaController(object):
             command = self.get_command()
             if self.debug:
                 print("command = {}".format(command))
+            elif command is not None:
+                print("Voice control: {}".format(command))
 
             if command == "autopilot":
                 self.ctr.mode = "local"
