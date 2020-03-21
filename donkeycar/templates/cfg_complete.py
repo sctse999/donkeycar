@@ -25,7 +25,7 @@ DRIVE_LOOP_HZ = 20      # the vehicle loop will pause if faster than this speed.
 MAX_LOOPS = None        # the vehicle loop can abort after this many iterations, when given a positive integer.
 
 #CAMERA
-CAMERA_TYPE = "PICAM"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|MOCK)
+CAMERA_TYPE = "PICAM"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|D435|MOCK)
 IMAGE_W = 160
 IMAGE_H = 120
 IMAGE_DEPTH = 3         # default RGB=3, make 1 for mono
@@ -145,6 +145,8 @@ SEQUENCE_LENGTH = 3             #some models use a number of images over time. T
 
 #IMU
 HAVE_IMU = False                #when true, this add a Mpu6050 part and records the data. Can be used with a 
+IMU_SENSOR = 'mpu6050'          # (mpu6050|mpu9250)
+IMU_DLP_CONFIG = 0              # Digital Lowpass Filter setting (0:250Hz, 1:184Hz, 2:92Hz, 3:41Hz, 4:20Hz, 5:10Hz, 6:5Hz)
 
 #SOMBRERO
 HAVE_SOMBRERO = False           #set to true when using the sombrero hat from the Donkeycar store. This will enable pwm on the hat.
@@ -240,4 +242,11 @@ PID_D = -0.2                        # differential mult for PID path follower
 PID_THROTTLE = 0.2                  # constant throttle value during path following
 SAVE_PATH_BTN = "cross"             # joystick button to save path
 RESET_ORIGIN_BTN = "triangle"       # joystick button to press to move car back to origin
+
+# Intel Realsense D435 and D435i depth sensing camera
+REALSENSE_D435_RGB = True       # True to capture RGB image
+REALSENSE_D435_DEPTH = True     # True to capture depth as image array
+REALSENSE_D435_IMU = False      # True to capture IMU data (D435i only)
+REALSENSE_D435_ID = None        # serial number of camera or None if you only have one camera (it will autodetect)
+
 
