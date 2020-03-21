@@ -7,7 +7,7 @@ Created on Sat Jun 24 20:10:44 2017
 
 remotes.py
 
-The client and web server needed to control a car remotely. 
+The client and web server needed to control a car remotely.
 """
 
 
@@ -22,6 +22,7 @@ from tornado.web import Application, RedirectHandler, StaticFileHandler, \
     RequestHandler
 from tornado.httpserver import HTTPServer
 import tornado.gen
+import tornado.websocket
 from socket import gethostname
 
 from ... import utils
@@ -30,9 +31,9 @@ from ... import utils
 class RemoteWebServer():
     '''
     A controller that repeatedly polls a remote webserver and expects
-    the response to be angle, throttle and drive mode. 
+    the response to be angle, throttle and drive mode.
     '''
-    
+
     def __init__(self, remote_url, connection_timeout=.25):
 
         self.control_url = remote_url
@@ -46,8 +47,8 @@ class RemoteWebServer():
 
     def update(self):
         '''
-        Loop to run in separate thread the updates angle, throttle and 
-        drive mode. 
+        Loop to run in separate thread the updates angle, throttle and
+        drive mode.
         '''
 
         while True:
@@ -55,7 +56,7 @@ class RemoteWebServer():
             self.angle, self.throttle, self.mode, self.recording = self.run()
 
     def run_threaded(self):
-        ''' 
+        '''
         Return the last state given from the remote server.
         '''
         return self.angle, self.throttle, self.mode, self.recording
@@ -63,9 +64,9 @@ class RemoteWebServer():
     def run(self):
         '''
         Posts current car sensor data to webserver and returns
-        angle and throttle recommendations. 
+        angle and throttle recommendations.
         '''
-        
+
         data = {}
         response = None
         while response is None:
@@ -95,13 +96,13 @@ class RemoteWebServer():
 
     def shutdown(self):
         pass
-    
-    
+
+
 class LocalWebController(tornado.web.Application):
 
     def __init__(self):
-        ''' 
-        Create and publish variables needed on many of 
+        '''
+        Create and publish variables needed on many of
         the web handlers.
         '''
 
@@ -118,6 +119,7 @@ class LocalWebController(tornado.web.Application):
         handlers = [
             (r"/", RedirectHandler, dict(url="/drive")),
             (r"/drive", DriveAPI),
+            (r"/wsDrive", WebSocketDriveAPI),
             (r"/video", VideoAPI),
             (r"/static/(.*)", StaticFileHandler,
              {"path": self.static_file_path}),
@@ -137,7 +139,7 @@ class LocalWebController(tornado.web.Application):
     def run_threaded(self, img_arr=None):
         self.img_arr = img_arr
         return self.angle, self.throttle, self.mode, self.recording
-        
+
     def run(self, img_arr=None):
         self.img_arr = img_arr
         return self.angle, self.throttle, self.mode, self.recording
@@ -162,6 +164,29 @@ class DriveAPI(RequestHandler):
         self.application.throttle = data['throttle']
         self.application.mode = data['drive_mode']
         self.application.recording = data['recording']
+
+class WebSocketDriveAPI(tornado.websocket.WebSocketHandler):
+    clients = []
+
+    def check_origin(self, origin):
+        return True
+
+    def open(self):
+        # print("New client connected")
+        WebSocketDriveAPI.clients.append(self)
+
+    def on_message(self, message):
+        data = json.loads(message)
+        self.application.angle = data['angle']
+        self.application.throttle = data['throttle']
+        self.application.mode = data['drive_mode']
+        self.application.recording = data['recording']
+
+        self.write_message(message)
+
+    def on_close(self):
+        # print("Client disconnected")
+        WebSocketDriveAPI.clients.remove(self)
 
 
 class VideoAPI(RequestHandler):
