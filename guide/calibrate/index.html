@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Calibrate steering and throttle. - Donkey Car</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../../extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,7 +26,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -46,6 +47,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Donkey Car</a>
         <div role="search">
@@ -56,142 +58,103 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../build_hardware/">Build a car.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../install_software/">Install the software.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../create_application/">Create Donkeycar App.</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Calibrate steering and throttle.</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#calibrate-your-car">Calibrate your Car</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../build_hardware/">Build a car.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../install_software/">Install the software.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../create_application/">Create Donkeycar App.</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Calibrate steering and throttle.</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-adjust-your-cars-settings">How to adjust your car's settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#steering-calibration">Steering Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#throttle-calibration">Throttle Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fine-tuning-your-calibration">Fine tuning your calibration</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#how-to-adjust-your-cars-settings">How to adjust your car's settings.</a></li>
-        
-            <li><a class="toctree-l4" href="#steering-calibration">Steering Calibration</a></li>
-        
-            <li><a class="toctree-l4" href="#throttle-calibration">Throttle Calibration</a></li>
-        
-            <li><a class="toctree-l4" href="#fine-tuning-your-calibration">Fine tuning your calibration.</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#next-lets-get-driving">Next let's get driving!</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../get_driving/">Get driving.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train_autopilot/">Train an autopilot.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../simulator/">Donkey Simulator.</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Parts</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../parts/about/">About</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/actuators/">Actuators</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/controllers/">Controllers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/keras/">Keras</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/stores/">Stores</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/imu/">IMU</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Utilities</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../utility/donkey/">donkey</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../supported_cars/">Supported Cars</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../roll_your_own/">Roll Your Own</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../contribute/">Contribute</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../tests/">Tests</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../release/">Releases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../get_driving/">Get driving.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../train_autopilot/">Train an autopilot.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dataset_pretrained_models/">Dataset and pre-trained models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../simulator/">Donkey Simulator.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtual_race_league/">Virtual Race League.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mobile_app/">Mobile app</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Parts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/about/">About</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/actuators/">Actuators</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/controllers/">Controllers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/keras/">Keras</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/stores/">Stores</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/imu/">IMU</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/oled/">OLED</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/voice_control/">Voice Control</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/stop_sign_detection/">Stop Sign Detection</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Utilities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../utility/donkey/">donkey</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../supported_cars/">Supported Cars</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../roll_your_own/">Roll Your Own</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contribute/">Contribute</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/">Tests</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../release/">Releases</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../legacy/">Legacy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -223,14 +186,15 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
                 <h1 id="calibrate-your-car">Calibrate your Car</h1>
-<p>The point of calibrating your car is to make it drive consitently.</p>
-<h2 id="how-to-adjust-your-cars-settings">How to adjust your car's settings.</h2>
+<p>The point of calibrating your car is to make it drive consistently.</p>
+<h2 id="how-to-adjust-your-cars-settings">How to adjust your car's settings</h2>
 <blockquote>
 <p>You will need to ssh into your Pi to do the calibration.</p>
 </blockquote>
@@ -286,7 +250,7 @@ the throttle_controller part:</p>
 <li><code>THROTTLE_STOPPED_PWM</code> = PWM value for zero throttle</li>
 <li><code>THROTTLE_REVERSE_PWM</code> = PWM value at full reverse throttle</li>
 </ul>
-<h2 id="fine-tuning-your-calibration">Fine tuning your calibration.</h2>
+<h2 id="fine-tuning-your-calibration">Fine tuning your calibration</h2>
 <blockquote>
 <p>Note : optional</p>
 </blockquote>
@@ -295,7 +259,7 @@ the throttle_controller part:</p>
 verify that it drives as expected. Here's how to fine tune your car's calibration.</p>
 <ol>
 <li>Start your car by running <code>python manage.py drive</code>.</li>
-<li>Go to <code>&lt;your_cars_ip_address&gt;:8887</code> in a browser.</li>
+<li>Go to <code>&lt;your_cars_hostname.local&gt;:8887</code> in a browser.</li>
 <li>Press <code>j</code> until the cars steering is all the way right.</li>
 <li>Press <code>i</code> a couple times to get the car to go forward.</li>
 <li>Measure the diameter of the turn and record it on a spreadsheet.</li>
@@ -303,11 +267,13 @@ verify that it drives as expected. Here's how to fine tune your car's calibratio
 direction.</li>
 <li>Chart these so you can see if your car turns the same in each direction.</li>
 </ol>
-<p>Corrections
-* If your car turns the same amount at an 80% turn and a 100% turn, change the
-PWM setting for that turn direction to be the PWM value at 80%.
-* If your car is biased to turn one direction, change the PWM values of your turns
-in the opposite direction of the bias.</p>
+<p>Corrections:</p>
+<ul>
+<li>If your car turns the same amount at an 80% turn and a 100% turn, change the
+PWM setting for that turn direction to be the PWM value at 80%.</li>
+<li>If your car is biased to turn one direction, change the PWM values of your turns
+in the opposite direction of the bias.</li>
+</ul>
 <p>After you've fine tuned your car the steering chart should look something like
 this.</p>
 <p><img alt="calibration graph" src="../../assets/calibration_graph.png" /></p>
@@ -334,7 +300,7 @@ this.</p>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -344,7 +310,7 @@ this.</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/autorope/donkeycar/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -360,6 +326,11 @@ this.</p>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

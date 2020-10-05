@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Create Donkeycar App. - Donkey Car</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../../extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -25,7 +26,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
@@ -46,6 +47,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Donkey Car</a>
         <div role="search">
@@ -56,148 +58,115 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">User Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../build_hardware/">Build a car.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../install_software/">Install the software.</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Create Donkeycar App.</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#create-your-car-application">Create your car application.</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User Guide</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../build_hardware/">Build a car.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../install_software/">Install the software.</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Create Donkeycar App.</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-donkeycar-from-template">Create Donkeycar from Template</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-options">Configure Options</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#create-donkeycar-from-template">Create Donkeycar from Template</a></li>
-        
-            <li><a class="toctree-l4" href="#configure-options">Configure Options</a></li>
-        
-            <li><a class="toctree-l4" href="#sombrero-setup">Sombrero Setup</a></li>
-        
-            <li><a class="toctree-l4" href="#joystick-setup">Joystick setup</a></li>
-        
-            <li><a class="toctree-l4" href="#camera-setup">Camera Setup</a></li>
-        
-            <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
-        
-            <li><a class="toctree-l4" href="#keeping-things-up-to-date">Keeping Things Up To Date</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#configure-i2c-pca9685">Configure I2C PCA9685</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../calibrate/">Calibrate steering and throttle.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../get_driving/">Get driving.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../train_autopilot/">Train an autopilot.</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../simulator/">Donkey Simulator.</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Parts</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../parts/about/">About</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/actuators/">Actuators</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/controllers/">Controllers</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/keras/">Keras</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/stores/">Stores</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../parts/imu/">IMU</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Utilities</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../utility/donkey/">donkey</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../supported_cars/">Supported Cars</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../roll_your_own/">Roll Your Own</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../contribute/">Contribute</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../tests/">Tests</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../release/">Releases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../faq/">FAQ</a>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sombrero-setup">Sombrero Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#robo-hat-mm1-setup">Robo HAT MM1 Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#joystick-setup">Joystick setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#camera-setup">Camera Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#keeping-things-up-to-date">Keeping Things Up To Date</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#next-calibrate-your-car">Next calibrate your car.</a>
+    </li>
         </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calibrate/">Calibrate steering and throttle.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../get_driving/">Get driving.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../train_autopilot/">Train an autopilot.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dataset_pretrained_models/">Dataset and pre-trained models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../simulator/">Donkey Simulator.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtual_race_league/">Virtual Race League.</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mobile_app/">Mobile app</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Parts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/about/">About</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/actuators/">Actuators</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/controllers/">Controllers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/keras/">Keras</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/stores/">Stores</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/imu/">IMU</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/oled/">OLED</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/voice_control/">Voice Control</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../parts/stop_sign_detection/">Stop Sign Detection</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Utilities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../utility/donkey/">donkey</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../supported_cars/">Supported Cars</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../roll_your_own/">Roll Your Own</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../contribute/">Contribute</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/">Tests</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../release/">Releases</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../legacy/">Legacy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -229,48 +198,54 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
-                <h1 id="create-your-car-application">Create your car application.</h1>
+                <h1 id="create-your-car-application">Create your car application</h1>
 <p>If you are not already, please <a href="/guide/robot_sbc/setup_raspberry_pi/#step-5-connecting-to-the-pi">ssh into your vehicle</a>.</p>
 <h2 id="create-donkeycar-from-template">Create Donkeycar from Template</h2>
 <p>Create a set of files to control your Donkey with this command:</p>
-<pre><code>donkey createcar --path ~/mycar
+<pre><code class="bash">donkey createcar --path ~/mycar
 </code></pre>
 
 <p>See also more information on <a href="/utility/donkey/#create-car">createcar.</a></p>
 <h2 id="configure-options">Configure Options</h2>
 <p>Look at <strong>myconfig.py</strong> in your newly created directory, ~/mycar</p>
-<pre><code>nano myconfig.py
+<pre><code class="bash">cd ~/mycar
+nano myconfig.py
 </code></pre>
 
-<p>Each line has a comment mark. The commented text shows the default value. When you want to make an edit to over-write the default, uncomment the line by removing the # and any spaces before the first charater of the option.</p>
-<p>ie.</p>
-<p><code># STEERING_LEFT_PWM = 460</code></p>
-<p>becomes</p>
-<p><code>STEERING_LEFT_PWM = 500</code></p>
+<p>Each line has a comment mark. The commented text shows the default value. When you want to make an edit to over-write the default, uncomment the line by removing the # and any spaces before the first character of the option.</p>
+<p>example:</p>
+<pre><code class="python"># STEERING_LEFT_PWM = 460
+</code></pre>
+
+<p>becomes:</p>
+<pre><code class="python">STEERING_LEFT_PWM = 500
+</code></pre>
+
 <p>when edited. You will adjust these later in the <a href="/guide/calibrate/">calibrate</a> section.</p>
 <h3 id="configure-i2c-pca9685">Configure I2C PCA9685</h3>
-<p>If you are using a PCA9685 card, make sure you can see it on I2C.  Replace <username> with your Linux username.</p>
-<p>Jetson Nano:</p>
-<pre><code class="bash">sudo usermod -aG i2c &lt;username&gt;
+<p>If you are using a PCA9685 card, make sure you can see it on I2C.</p>
+<p><strong>Jetson Nano</strong>:</p>
+<pre><code class="bash">sudo usermod -aG i2c $USER
 sudo reboot
 </code></pre>
 
 <p>After a reboot, then try:</p>
-<pre><code>sudo i2cdetect -r -y 1
+<pre><code class="bash">sudo i2cdetect -r -y 1
 </code></pre>
 
-<p>Raspberry Pi:</p>
-<pre><code>sudo apt-get install i2c-tools
+<p><strong>Raspberry Pi</strong>:</p>
+<pre><code class="bash">sudo apt-get install -y i2c-tools
 sudo i2cdetect -y 1
 </code></pre>
 
 <p>This should show you a grid of addresses like:</p>
-<pre><code>     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+<pre><code class="text">     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -281,23 +256,67 @@ sudo i2cdetect -y 1
 70: 70 -- -- -- -- -- -- --
 </code></pre>
 
-<p>In this case, the 40 shows up as the address of our PCA9685 board. If this does not show up, then check your wiring to the board. On a pi, ensure I2C is enabled in <code>sudo raspi-config</code></p>
-<p>If you have assigned a non-standard address to your board, then adjust the address in the myconfig.py <code>PCA9685_I2C_ADDR</code>. If your board is on another bus, then you can specify that with the <code>PCA9685_I2C_BUSNUM</code>.</p>
-<blockquote>
-<p>Jetson Nano: set <code>PCA9685_I2C_BUSNUM = 1</code> in your <strong>myconfig.py</strong> . For the pi, this will be auto detected by the Adafruit library. But not on the Jetson Nano.</p>
-</blockquote>
+<p>In this case, the 40 shows up as the address of our PCA9685 board. If this does not show up, then check your wiring to the board. On a pi, ensure I2C is enabled in menu of <code>sudo raspi-config</code> (notice, it suggest reboot).</p>
+<p>If you have assigned a non-standard address to your board, then adjust the address in the <code>myconfig.py</code> under variable <code>PCA9685_I2C_ADDR</code>. If your board is on another bus, then you can specify that with the <code>PCA9685_I2C_BUSNUM</code>.</p>
+<p><strong>Jetson Nano</strong>: set <code>PCA9685_I2C_BUSNUM = 1</code> in your <strong>myconfig.py</strong> . For the pi, this will be auto detected by the Adafruit library. But not on the Jetson Nano.</p>
 <h2 id="sombrero-setup">Sombrero Setup</h2>
-<blockquote>
-<p>Sombrero: set <code>HAVE_SOMBRERO = True</code> in your <strong>myconfig.py</strong> if you have a sombrero board.</p>
-</blockquote>
+<p>Set <code>HAVE_SOMBRERO = True</code> in your <strong>myconfig.py</strong> if you have a sombrero board.</p>
+<h2 id="robo-hat-mm1-setup">Robo HAT MM1 Setup</h2>
+<p>Set <code>HAVE_ROBOHAT = True</code> in your <strong>myconfig.py</strong> if you have a Robo HAT MM1 board. Also set the following variables according to your setup.  Most people will be using the below values, however, if you are using a Jetson Nano, please set <code>MM1_SERIAL_PORT = '/dev/ttyTHS1'</code></p>
+<pre><code class="python3">#ROBOHAT MM1
+HAVE_ROBOHAT = False            # set to true when using the Robo HAT MM1 from Robotics Masters.  This will change to RC Control.
+MM1_STEERING_MID = 1500         # Adjust this value if your car cannot run in a straight line
+MM1_MAX_FORWARD = 2000          # Max throttle to go fowrward. The bigger the faster
+MM1_STOPPED_PWM = 1500
+MM1_MAX_REVERSE = 1000          # Max throttle to go reverse. The smaller the faster
+MM1_SHOW_STEERING_VALUE = False
+# Serial port 
+# -- Default Pi: '/dev/ttyS0'
+# -- Jetson Nano: '/dev/ttyTHS1'
+# -- Google coral: '/dev/ttymxc0'
+# -- Windows: 'COM3', Arduino: '/dev/ttyACM0'
+# -- MacOS/Linux:please use 'ls /dev/tty.*' to find the correct serial port for mm1 
+#  eg.'/dev/tty.usbmodemXXXXXX' and replace the port accordingly
+MM1_SERIAL_PORT = '/dev/ttyS0'  # Serial Port for reading and sending MM1 data (raspberry pi default)
+
+# adjust controller type as Robohat MM1
+CONTROLLER_TYPE='MM1'
+# adjust drive train for web interface
+DRIVE_TRAIN_TYPE = 'MM1'
+</code></pre>
+
+<p>The Robo HAT MM1 uses a RC Controller and CircuitPython script to drive the car during training. You must put the CircuitPython script onto the Robo HAT MM1 with your computer before you can continue.</p>
+<ol>
+<li>Download the CircuitPython Donkey Car Driver for Robo HAT MM1 to your computer from <a href="https://github.com/autorope/donkeycar/blob/dev/donkeycar/contrib/robohat/code.py">here</a></li>
+<li>Connect the MicroUSB connector on the Robo HAT MM1 to your computer's USB port.</li>
+<li>A <strong>CIRCUITPY</strong> device should appear on the computer as a USB Storage Device</li>
+<li>Copy the file downloaded in Step 1 to the <strong>CIRCUITPY</strong> USB Storage Device.  Rename the file <strong>code.py</strong>.</li>
+<li>Unplug USB Cable from the Robo HAT MM1 and place on top of the Raspberry Pi, as you would any HAT.</li>
+</ol>
+<p>You may need to enable the hardware serial port on your Raspberry Pi.  On your Raspberry Pi...</p>
+<ol>
+<li>Run the command <code>sudo raspi-config</code></li>
+<li>Navigate to the <strong>5 - Interfaceing options</strong> section.</li>
+<li>Navigate to the <strong>P6 - Serial</strong> section.</li>
+<li>When asked: <strong>Would you like a login shell to be accessible over serial?</strong>  NO</li>
+<li>When asked: <strong>Would you like the serial port hardware to be enabled?</strong> YES</li>
+<li>Close raspi-config</li>
+<li>Restart</li>
+</ol>
+<p>If you would like additional hardware or software support with Robo HAT MM1, there are a few guides published on Hackster.io.  They are listed below.</p>
+<p><a href="https://www.hackster.io/wallarug/autonomous-cars-with-robo-hat-mm1-8d0e65">Raspberry Pi + Robo HAT MM1</a></p>
+<p><a href="https://www.hackster.io/wallarug/donkey-car-with-jetson-nano-robo-hat-mm1-e53e21">Jetson Nano + Robo HAT MM1</a></p>
+<p><a href="https://www.hackster.io/wallarug/donkey-car-simulator-with-real-rc-controller-628e77">Simulator + Robo HAT MM1</a></p>
 <h2 id="joystick-setup">Joystick setup</h2>
 <p>If you plan to use a joystick, take a side track over to <a href="/parts/controllers/#joystick-controller">here</a>.</p>
 <h2 id="camera-setup">Camera Setup</h2>
+<p><strong>Raspberry Pi</strong>:</p>
 <p>If you are on a raspberry pi and using the recommended pi camera, then no changes are needed to your <strong>myconfg.py</strong>. </p>
-<blockquote>
-<p>Jetson Nano: when using a Sony IMX219 based camera, and you are using the default car template, then you will want edit your <strong>myconfg.py</strong> to have:
-<code>CAMERA_TYPE = "CSIC"</code>. For flipping the image vertically set <code>CSIC_CAM_GSTREAMER_FLIP_PARM = 3</code>. This is helpful if you have to mount the camera in a rotated position. Set <code>IMAGE_W = 224</code> and also <code>IMAGE_H = 224</code>.</p>
-</blockquote>
+<p><strong>Jetson Nano</strong>:</p>
+<p>When using a Sony IMX219 based camera, and you are using the default car template, then you will want edit your <strong>myconfg.py</strong> to have:
+<code>CAMERA_TYPE = "CSIC"</code>.
+For flipping the image vertically set <code>CSIC_CAM_GSTREAMER_FLIP_PARM = 3</code> - this is helpful if you have to mount the camera in a rotated position.
+Set <code>IMAGE_W = 224</code> and also <code>IMAGE_H = 224</code>.</p>
 <p>CVCAM is a camera type that has worked for USB cameras when OpenCV is setup. This requires additional setup for <a href="/guide/robot_sbc/setup_jetson_nano/#step-4-install-opencv">OpenCV for Nano</a> or <a href="https://www.learnopencv.com/install-opencv-4-on-raspberry-pi/">OpenCV for Raspberry Pi</a>.</p>
 <p>WEBCAM is a camera type that uses the pygame library, also typically for USB cameras. That requires additional setup for <a href="https://www.pygame.org/wiki/GettingStarted">pygame</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
@@ -309,7 +328,7 @@ git pull
 donkey createcar --path ~/mycar --overwrite
 </code></pre>
 
-<p>Your ~/mycar/manage.py, ~/mycar/config.py and other files will change with this operation. But <strong>myconfig.py</strong> will not be touched. Your <strong>data</strong> and <strong>models</strong> dirs will not be touched.</p>
+<p>Your ~/mycar/manage.py, ~/mycar/config.py and other files will change with this operation, but <strong>myconfig.py</strong> will not be touched. Your <strong>data</strong> and <strong>models</strong> dirs will not be touched.</p>
 <blockquote>
 <p>Note: If you are updating from Donkey&lt;3.0 to 3.0+ it is very likely you will need to start over with a new virtual environment. We've had a few users hit this snag.</p>
 </blockquote>
@@ -337,7 +356,7 @@ donkey createcar --path ~/mycar --overwrite
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -347,7 +366,7 @@ donkey createcar --path ~/mycar --overwrite
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/autorope/donkeycar/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -363,6 +382,11 @@ donkey createcar --path ~/mycar --overwrite
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
