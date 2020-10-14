@@ -17,6 +17,7 @@ pages:
       - 'Calibrate steering and throttle.': guide/calibrate.md
       - 'Get driving.': guide/get_driving.md
       - 'Train an autopilot.': guide/train_autopilot.md
+      - 'Dataset and pre-trained models': guide/dataset_pretrained_models.md
       - 'Donkey Simulator.': guide/simulator.md
       - 'Virtual Race League.': guide/virtual_race_league.md
       - 'Mobile app': guide/mobile_app.md
@@ -29,6 +30,7 @@ pages:
       - 'IMU': parts/imu.md
       - 'OLED': parts/oled.md
       - 'Voice Control': parts/voice_control.md
+      - 'Stop Sign Detection': parts/stop_sign_detection.md
   - Utilities:
       - 'donkey': utility/donkey.md
 
