@@ -10,7 +10,7 @@ import donkeycar as dk
 
 def have_robohat():
     # todo - detect that we have a robohat so we can run the tests.
-    return False
+    return True
 
 class TestRoboHATDriver():
     @patch('serial.Serial')
@@ -56,6 +56,60 @@ class TestRoboHATDriver():
 
         driver.set_pulse(-2.0, -2.0)
         driver.write_pwm.assert_called_with(2000, 1000)
+
+
+    @patch('serial.Serial')
+    def test_set_pulse_battery(self, serial):
+        driver = RoboHATDriver(cfg, True)
+        driver.MAX_FORWARD = 1800
+        driver.STOPPED_PWM = 1500
+        driver.THROTTLE_COMPENSATION = 50
+
+        driver.write_pwm = MagicMock()
+
+        # When battery is full, no compensation
+        driver.set_pulse(0.0, 1.0, 100)
+        driver.write_pwm.assert_called_with(1500, 1800)
+
+        # When battery is 50% full, 50% of compensation
+        driver.set_pulse(0.0, 1.0, 50)
+        driver.write_pwm.assert_called_with(1500, 1825)
+
+        # When battery is 0% full, 100% of compensation
+        driver.set_pulse(0.0, 1.0, 0)
+        driver.write_pwm.assert_called_with(1500, 1850)
+
+        # If throttle is zero, no compensation should be made even battery is 0%
+        driver.set_pulse(0.0, 0.0, 0)
+        driver.write_pwm.assert_called_with(1500, 1500)
+
+        # What if throttle is 0.1?
+        driver.set_pulse(0.0, 0.1, 0)
+        driver.write_pwm.assert_called_with(1500, 1535)  # 1500 + 0.1 * 300 + 0.1 * 50
+
+        # Change max throttle compensation to 100
+        driver.THROTTLE_COMPENSATION = 100
+
+        driver.set_pulse(0.0, 1.0, 100)
+        driver.write_pwm.assert_called_with(1500, 1800)
+
+        driver.set_pulse(0.0, 1.0, 50)
+        driver.write_pwm.assert_called_with(1500, 1850)
+
+        driver.set_pulse(0.0, 1.0, 0)
+        driver.write_pwm.assert_called_with(1500, 1900)
+
+        # Change max throttle compensation to 100
+        driver.THROTTLE_COMPENSATION = 0
+
+        driver.set_pulse(0.0, 1.0, 100)
+        driver.write_pwm.assert_called_with(1500, 1800)
+
+        driver.set_pulse(0.0, 1.0, 50)
+        driver.write_pwm.assert_called_with(1500, 1800)
+
+        driver.set_pulse(0.0, 1.0, 0)
+        driver.write_pwm.assert_called_with(1500, 1800)
 
     @patch('serial.Serial')
     @pytest.mark.skipif(have_robohat() == False, reason='No robohat')

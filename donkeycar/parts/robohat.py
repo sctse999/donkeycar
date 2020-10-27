@@ -153,7 +153,10 @@ class RoboHATDriver:
         self.MAX_REVERSE = cfg.MM1_MAX_REVERSE
         self.STOPPED_PWM = cfg.MM1_STOPPED_PWM
         self.STEERING_MID = cfg.MM1_STEERING_MID
+        self.THROTTLE_COMPENSATION = cfg.THROTTLE_COMPENSATION  # When battery is zero, the amount of pwm to compensate
         self.debug = debug
+        self.running = True
+        self.battery_level = 100
 
     """
     Steering and throttle should range between -1.0 to 1.0. This function will
@@ -170,15 +173,26 @@ class RoboHATDriver:
         else:
             return value
 
-    def set_pulse(self, steering, throttle):
+    '''
+    battery_level represent the percentage that the battery is charged.
+    '''
+    def set_pulse(self, steering, throttle, battery_level=100):
         try:
             steering = self.trim_out_of_bound_value(steering)
             throttle = self.trim_out_of_bound_value(throttle)
 
             if throttle > 0:
-                output_throttle = dk.utils.map_range(throttle,
-                                                     0, 1.0,
-                                                     self.STOPPED_PWM, self.MAX_FORWARD)
+                # Adjust the output throttle based on battery level
+                if self.THROTTLE_COMPENSATION > 0:
+                    compensation = dk.utils.map_range(battery_level,
+                                                      0, 100,
+                                                      self.THROTTLE_COMPENSATION, 0)
+                else:
+                    compensation = 0
+
+                print(f"compensation = {compensation}")
+                net_forward = self.MAX_FORWARD - self.STOPPED_PWM
+                output_throttle = self.STOPPED_PWM + throttle * (net_forward + compensation)
             else:
                 output_throttle = dk.utils.map_range(throttle,
                                                      -1, 0,
@@ -215,8 +229,37 @@ class RoboHATDriver:
     def write_pwm(self, steering, throttle):
         self.pwm.write(b"%d, %d\r" % (steering, throttle))
 
+    def calculate_battery_percentage(self, current_voltage):
+        max_voltage = 8.4
+        min_voltage = 7
+
+        battery_level = int((current_voltage - min_voltage) / (max_voltage - min_voltage) * 100)
+
+        return battery_level
+    
+    def update(self):
+        while(self.running):
+            try:
+                import board
+                import busio
+                import adafruit_ina219
+                i2c = busio.I2C(board.SCL, board.SDA)
+                ina219 = adafruit_ina219.INA219(i2c, 0x41)
+                self.battery_level = self.calculate_battery_percentage(ina219.bus_voltage)
+                print(f"battery level = {self.battery_level}")
+            except Exception as e:
+                print(e)
+
+            time.sleep(10)
+            
+    def run_threaded(self, steering, throttle):
+        self.set_pulse(steering, throttle, self.battery_level)
+
+    '''
+        Non-threaded version - Leave it here for compatibility
+    '''
     def run(self, steering, throttle):
-        self.set_pulse(steering, throttle)
+        self.set_pulse(steering, throttle, 100)
 
     def shutdown(self):
         try:
