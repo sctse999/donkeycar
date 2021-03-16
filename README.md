@@ -1,5 +1,7 @@
 # donkeycar: a python self driving library
 
+Test-from-vs-code
+
 [![Build Status](https://travis-ci.org/autorope/donkeycar.svg?branch=dev)](https://travis-ci.org/autorope/donkeycar)
 [![CodeCov](https://codecov.io/gh/autoropoe/donkeycar/branch/dev/graph/badge.svg)](https://codecov.io/gh/autorope/donkeycar/branch/dev)
 [![PyPI version](https://badge.fury.io/py/donkeycar.svg)](https://badge.fury.io/py/donkeycar)
@@ -10,25 +12,29 @@ developed for hobbyists and students with a focus on allowing fast experimentati
 community contributions.
 
 #### Quick Links
-* [Donkeycar Updates & Examples](http://donkeycar.com)
-* [Build instructions and Software documentation](http://docs.donkeycar.com)
-* [Discord / Chat](https://discord.gg/PN6kFeA)
+
+- [Donkeycar Updates & Examples](http://donkeycar.com)
+- [Build instructions and Software documentation](http://docs.donkeycar.com)
+- [Discord / Chat](https://discord.gg/PN6kFeA)
 
 ![donkeycar](./docs/assets/build_hardware/donkey2.png)
 
 #### Use Donkey if you want to:
-* Make an RC car drive its self.
-* Compete in self driving races like [DIY Robocars](http://diyrobocars.com)
-* Experiment with autopilots, mapping computer vision and neural networks.
-* Log sensor data. (images, user inputs, sensor readings)
-* Drive your car via a web or game controller.
-* Leverage community contributed driving data.
-* Use existing CAD models for design upgrades.
+
+- Make an RC car drive its self.
+- Compete in self driving races like [DIY Robocars](http://diyrobocars.com)
+- Experiment with autopilots, mapping computer vision and neural networks.
+- Log sensor data. (images, user inputs, sensor readings)
+- Drive your car via a web or game controller.
+- Leverage community contributed driving data.
+- Use existing CAD models for design upgrades.
 
 ### Get driving.
+
 After building a Donkey2 you can turn on your car and go to http://localhost:8887 to drive.
 
 ### Modify your cars behavior.
+
 The donkey car is controlled by running a sequence of events
 
 ```python
